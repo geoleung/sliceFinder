@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Qs from 'qs';
+import GetRestByReviews from './getRestByReviews';
+
 
 class App extends React.Component {
   // constructor() {
@@ -15,8 +17,8 @@ class App extends React.Component {
         <div>
           Hello
           <GetAccessToken />
+          <GetRestByReviews />
         </div>
-
       )
     }
 }
@@ -47,10 +49,10 @@ class GetAccessToken extends React.Component {
         params: {
           reqUrl: 'https://api.yelp.com/v3/businesses/search',
           params: {
-            location: 'Toronto',
-            term: 'pizza',
-            limit: 50,
-            'sort_by': 'review_count'
+            location: 'miami',
+            categories: 'pizza',
+            limit: 50
+            // 'sort_by': 'review_count'
             // offset: 51
           },
           proxyHeaders: {
@@ -58,8 +60,38 @@ class GetAccessToken extends React.Component {
           },
           xmlToJSON: false
         }
-      }).then((res) => {
-        console.log(res);
+      }).then((result) => {
+        const restaurantArray = result.data.businesses;
+        // console.log(restaurantIdArray);
+
+        restaurantArray.map((restaurant) => {
+          console.log(restaurant.id);
+
+        })
+        // .then((result) => {
+        //   axios({
+        //     method: 'GET',
+        //     url: 'http://proxy.hackeryou.com',
+        //     dataResponse: 'json',
+        //     paramsSerializer: function (params) {
+        //       return Qs.stringify(params, { arrayFormat: 'brackets' })
+        //     },
+        //     params: {
+        //       reqUrl: 'https://api.yelp.com/v3/businesses/search',
+        //       params: {
+        //         location: 'miami',
+        //         categories: 'pizza',
+        //         limit: 50
+        //         // 'sort_by': 'review_count'
+        //         // offset: 51
+        //       },
+        //       proxyHeaders: {
+        //         'Authorization': `Bearer ${this.state.accessToken}`,
+        //       },
+        //       xmlToJSON: false
+        //     }
+        //   })
+        // })
       });
       // console.log(this.state.accessToken);
       // axios.get('https://api.yelp.com/v3/businesses/search', {
