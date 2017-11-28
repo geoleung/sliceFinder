@@ -47,11 +47,11 @@ class GetAccessToken extends React.Component {
         params: {
           reqUrl: 'https://api.yelp.com/v3/businesses/search',
           params: {
-            location: 'Toronto',
-            term: 'pizza',
+            location: 'Miami',
+            categories: 'pizza',
             limit: 50,
-            'sort_by': 'review_count'
-            // offset: 51
+            // sort_by: 'review_count',
+            offset: 51
           },
           proxyHeaders: {
             'Authorization': `Bearer ${this.state.accessToken}`,
