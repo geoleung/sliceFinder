@@ -66,43 +66,7 @@ class GetAccessToken extends React.Component {
           console.log(restaurant.id);
 
         })
-        // .then((result) => {
-        //   axios({
-        //     method: 'GET',
-        //     url: 'http://proxy.hackeryou.com',
-        //     dataResponse: 'json',
-        //     paramsSerializer: function (params) {
-        //       return Qs.stringify(params, { arrayFormat: 'brackets' })
-        //     },
-        //     params: {
-        //       reqUrl: 'https://api.yelp.com/v3/businesses/search',
-        //       params: {
-        //         location: 'miami',
-        //         categories: 'pizza',
-        //         limit: 50
-        //         // 'sort_by': 'review_count'
-        //         // offset: 51
-        //       },
-        //       proxyHeaders: {
-        //         'Authorization': `Bearer ${this.state.accessToken}`,
-        //       },
-        //       xmlToJSON: false
-        //     }
-        //   })
-        // })
       });
-      // console.log(this.state.accessToken);
-      // axios.get('https://api.yelp.com/v3/businesses/search', {
-      //   params: {
-      //     location: "toronto",
-
-      //   }, 
-      //   headers: {
-      //     Authorization: `Bearer ${this.state.accessToken}`
-      //   }
-      // }).then((yelpResults) => {
-      //   console.log(yelpResults);
-      // })
     })
   }
   render() {
