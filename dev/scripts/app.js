@@ -4,18 +4,7 @@ import axios from 'axios';
 import Qs from 'qs';
 import SplashPage from './splashPage.js';
 import UserInputPage from './userInputPage';
-
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-
-class About extends React.Component {
-	render() {
-		return (
-			<div>
-				About Us
-      		</div>
-		)
-	}
-}
 
 class App extends React.Component {
 	constructor() {
@@ -131,18 +120,21 @@ class App extends React.Component {
 		});
 	}
 
-    render() {
-      
-		return (
-			<Router>
-				<div>
-					<Route exact path="/" component={SplashPage} />
-					<Route exact path="/about" component={About} />
-					<UserInputPage token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} />
-				</div>
-			</Router>
-		)
-    }
+  render() {
+    return (
+      <Router>
+        <div>
+          <Switch>
+            {/* Adding paths to different "pages". We use "render" when referencing UserInputPage in order to pass down the props that it needs*/}
+            <Route exact path="/" component={SplashPage} />
+            <Route exact path="/app" render={(props) => (
+              <UserInputPage {...props} token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} />
+            )}/>
+          </Switch>
+        </div>
+      </Router>
+    )
+  }
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
