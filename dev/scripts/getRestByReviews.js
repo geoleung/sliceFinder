@@ -6,17 +6,18 @@ import Qs from 'qs';
 class GetRestByReviews extends React.Component {
     constructor() {
         super();
+        this.state = {
+            namesArray: []
+        }
+        this.searchReviews = this.searchReviews.bind(this);
     }
-    componentDidMount() {
-        axios.get('https://yelp-oauth.herokuapp.com/token', {
-            params: {
-                "token_type": "Bearer"
-            }
-        }).then((result) => {
-            this.setState({
-                accessToken: result.data.response.access_token
-            })
-            axios({
+    searchReviews() {
+        this.setState({
+            namesArray: this.props.restaurantNames
+        })
+        // let reviewPromises = this.state.namesArray;
+        this.state.namesArray.map((restaurantID) => {
+            return axios({
                 method: 'GET',
                 url: 'http://proxy.hackeryou.com',
                 dataResponse: 'json',
@@ -24,18 +25,24 @@ class GetRestByReviews extends React.Component {
                     return Qs.stringify(params, { arrayFormat: 'brackets' })
                 },
                 params: {
-                    reqUrl: `https://api.yelp.com/v3/businesses/${this.props.restaurantList}/reviews`,
+                    reqUrl: `https://api.yelp.com/v3/businesses/${restaurantID}/reviews`,
                     params: {
                     },
                     proxyHeaders: {
-                        'Authorization': `Bearer ${this.state.accessToken}`,
+                        'Authorization': `Bearer ${this.props.token}`,
                     },
                     xmlToJSON: false
                 }
             }).then((result) => {
                 console.log(result);
             });
-        })
+        });
+        Promise.all(reviewPromises).then((promise) => {
+            console.log(promise);
+            //for each restaurant we get an array of 3 objects - each object has a review (object.text)
+            //for each restaurant need to search through the three object.text's for 'slice' and filter out anything that has 'slice' in it
+            //return a new array of just the restaurants the restaurants that have 'slice'
+        });
     }
     render() {
         return (
