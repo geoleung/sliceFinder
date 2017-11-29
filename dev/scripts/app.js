@@ -4,6 +4,7 @@ import axios from 'axios';
 import Qs from 'qs';
 import SplashPage from './splashPage.js';
 import UserInputPage from './userInputPage';
+
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 class About extends React.Component {
@@ -136,6 +137,7 @@ class App extends React.Component {
 	}
 
     render() {
+      
 		return (
 			<Router>
 				<div>
