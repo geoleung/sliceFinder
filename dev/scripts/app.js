@@ -103,7 +103,7 @@ class App extends React.Component {
 				const justReviewsArray = reviewsArray.map((restaurant) => {
 					return restaurant.map((reviews) => {
 						return reviews.text;
-					})
+					}).join();
 				});
 
 				const restaurantListWithReviews = justReviewsArray.map((reviewList, i) => {
