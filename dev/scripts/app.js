@@ -52,8 +52,6 @@ class GetAccessToken extends React.Component {
             location: 'miami',
             categories: 'pizza',
             limit: 50
-            // 'sort_by': 'review_count'
-            // offset: 51
           },
           proxyHeaders: {
             'Authorization': `Bearer ${this.state.accessToken}`,
