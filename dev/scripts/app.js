@@ -4,7 +4,22 @@ import axios from 'axios';
 import Qs from 'qs';
 // import SplashPage from './splashPage';
 import UserInputPage from './userInputPage';
+import SplashPage from './splashPage.js';
+// import {
+//   BrowserRouter as Router,
+//   Route, Link
+// } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
+class About extends React.Component {
+  render() {
+    return (
+      <div>
+        About Us
+      </div>
+    )
+  }
+}
 
 class App extends React.Component {
   constructor() {
@@ -36,7 +51,6 @@ class App extends React.Component {
       [e.target.name]: e.target.value
     });
   }
-
 
   handleSubmit(e) {
     e.preventDefault();
@@ -112,11 +126,13 @@ class App extends React.Component {
 
     render() {
       return (
-        <div>
-          Hello
-          {/* <SplashPage /> */}
-          <UserInputPage token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} />
-        </div>
+        <Router>
+          <div>
+            <Route exact path="/" component={SplashPage}/>
+            <Route exact path="/about" component={About} />
+            <UserInputPage token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} />
+          </div>
+        </Router>
       )
     }
 }
