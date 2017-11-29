@@ -114,7 +114,7 @@ class App extends React.Component {
 				const justReviewsArray = reviewsArray.map((restaurant) => {
 					return restaurant.map((reviews) => {
 						return reviews.text;
-					})
+					}).join()
 				});
 
 				const restaurantListWithReviews = justReviewsArray.map((reviewList, i) => {
@@ -127,11 +127,6 @@ class App extends React.Component {
 				this.setState({
 					restaurantList: restaurantListWithReviews,
         });
-        // const word = "slice";
-        // const filtered = this.state.restaurantList.filter((str) => {
-        //   return word.test(str);
-        // });
-        // console.log(filtered);
 			});
 		});
 	}
