@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import UserInputPage from './userInputPage';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 class SplashPage extends React.Component {
@@ -13,7 +14,7 @@ class SplashPage extends React.Component {
                 <img src="public/assets/logo-white.png" alt="Slice Finder company logo."/>
                 <h1>slice finder</h1>
                 <button className="enterSite">
-                    <Link to="/about">Enter Site</Link>
+                    <Link to="/app">Enter Site</Link>
                 </button>
             </section>
         )
