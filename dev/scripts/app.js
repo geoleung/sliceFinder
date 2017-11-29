@@ -26,7 +26,7 @@ class App extends React.Component {
       this.setState({
         accessToken: result.data.response.access_token
       })
-      console.log(this.state.accessToken);
+      // console.log(this.state.accessToken);
     })
   }
 
@@ -35,7 +35,6 @@ class App extends React.Component {
       [e.target.name]: e.target.value
     });
   }
-
 
   handleSubmit(e) {
     e.preventDefault();
@@ -54,7 +53,6 @@ class App extends React.Component {
           limit: 50,
           // sort_by: 'review_count',
           // offset: 51
-
         },
         proxyHeaders: {
           'Authorization': `Bearer ${this.state.accessToken}`,
@@ -65,9 +63,7 @@ class App extends React.Component {
       // console.log(result);
       const restaurantArray = result.data.businesses;
       // console.log(restaurantIdArray);
-
       let restaurantInfoArray = restaurantArray.map((restaurant) => {
-
         return {
           id: restaurant.id,
           name: restaurant.name,
@@ -75,50 +71,55 @@ class App extends React.Component {
           address: restaurant.location.display_address,
           price: restaurant.price
         }
-        
-        // this.setState({
-        //   restaurantList: restaurantNameArray
-        // });
-    //     const reviewPromises = this.state.restaurantList.map((restaurantID) => {
-    //       axios({
-    //           method: 'GET',
-    //           url: 'http://proxy.hackeryou.com',
-    //           dataResponse: 'json',
-    //           paramsSerializer: function (params) {
-    //               return Qs.stringify(params, { arrayFormat: 'brackets' })
-    //           },
-    //           params: {
-    //               reqUrl: `https://api.yelp.com/v3/businesses/${restaurantID}/reviews`,
-    //               params: {
-    //                 total: 50
-    //               },
-    //               proxyHeaders: {
-    //                   'Authorization': `Bearer ${this.state.accessToken}`,
-    //               },
-    //               xmlToJSON: false
-    //           }
-    //       }).then((res) => {
-    //         for (let i = 0; i < res.data.reviews.length; i++) {
-
-    //           console.log(res.data.reviews[i].text);
-    //         }
-          // });
-      // });
     })
-    console.log(restaurantInfoArray);
-  })
-  }
+    this.setState({
+      restaurantList: restaurantInfoArray
+    });
+    const reviewPromises = this.state.restaurantList.map((restaurant) => {
+      return axios({
+        method: 'GET',
+        url: 'http://proxy.hackeryou.com',
+        dataResponse: 'json',
+        paramsSerializer: function (params) {
+          return Qs.stringify(params, { arrayFormat: 'brackets' })
+        },
+        params: {
+          reqUrl: `https://api.yelp.com/v3/businesses/${restaurant.id}/reviews`,
+          params: {
+            total: 50
+          },
+          proxyHeaders: {
+              'Authorization': `Bearer ${this.state.accessToken}`,
+          },
+          xmlToJSON: false
+        }
+      })
+    })
+      Promise.all(reviewPromises).then((response) => {
+        console.log(response);
 
-    render() {
-      return (
-        <div>
-          Hello
-          {/* <SplashPage /> */}
-          <UserInputPage token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} />
-        </div>
-      )
-    }
+      })
+    })
+  }
+  render() {
+    return (
+      <div>
+        Hello
+        {/* <SplashPage /> */}
+        <UserInputPage token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} />
+      </div>
+    )
+  }
 }
 
 
 ReactDOM.render(<App />, document.getElementById('app'));
+
+
+// .then((res) => {
+//   console.log(res);
+// //         for (let i = 0; i < res.data.reviews.length; i++) {
+
+// //           console.log(res.data.reviews[i].text);
+// //         }
+// });

@@ -6,17 +6,8 @@ class UserInputPage extends React.Component {
     constructor() {
       super();
       this.state = {
-        // userLocation: ''
       }
-      // this.handleChange = this.handleChange.bind(this);
     }
- 
-
-    submitForm(e) {
-      e.preventDefault();
-
-    }
-    
     render() {
       return (
         <div>
