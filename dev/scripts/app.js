@@ -15,7 +15,7 @@ class App extends React.Component {
 			accessToken: '',
 			userLocation: '',
 			restaurantList: [],
-			isLoading: 'false'
+			isLoading: false
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
