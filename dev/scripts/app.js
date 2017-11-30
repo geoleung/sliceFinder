@@ -13,7 +13,8 @@ class App extends React.Component {
 		this.state = {
 			accessToken: '',
 			userLocation: '',
-			restaurantList: []
+			restaurantList: [],
+			isLoading: false
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
@@ -41,7 +42,8 @@ class App extends React.Component {
 		e.preventDefault();
 
 		this.setState({
-			userLocation: ''
+			userLocation: '',
+			isLoading: true
 		});
 
 		axios({
@@ -154,7 +156,7 @@ class App extends React.Component {
             {/* Adding paths to different "pages". We use "render" when referencing UserInputPage in order to pass down the props that it needs*/}
             <Route exact path="/" component={SplashPage} />
             <Route exact path="/app" render={(props) => (
-              <UserInputPage {...props} token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} sliceRestaurants={this.state.restaurantList} />
+              <UserInputPage {...props} token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} sliceRestaurants={this.state.restaurantList} load={this.state.isLoading} />
             )}/>
           </Switch>
         </div>
