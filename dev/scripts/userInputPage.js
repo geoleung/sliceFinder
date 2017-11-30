@@ -1,7 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Qs from 'qs';
 import Loading from 'react-loading-animation';
+import LoadingSpinner from './loading.js';
 
 class UserInputPage extends React.Component {
     constructor() {
@@ -19,7 +21,6 @@ class UserInputPage extends React.Component {
 
 				<ul>
 					{this.props.sliceRestaurants.map((restaurant) => {
-						console.log(restaurant);
 						return (
 							<li>
 								<h2>{restaurant.restaurantInfo.name}</h2>
