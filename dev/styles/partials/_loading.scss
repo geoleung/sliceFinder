@@ -1,8 +1,8 @@
 
-$green: #008744;
-$blue: #0057e7;
-$red: #d62d20;
-$yellow: #ffa700;
+$green: #247BA0;
+$blue: rgb(16, 35, 121);
+$red: rgb(243, 34, 34);
+$yellow: rgb(245, 159, 0);
 $white: #eee;
 
 // scaling... any units
@@ -81,13 +81,13 @@ body {
     stroke: $red;
   }
   40% {
-    stroke: $blue;
+    stroke: $yellow;
   }
   66% {
     stroke: $green;
   }
   80%,
   90% {
-    stroke: $yellow;
+    stroke: $blue;
   }
 }

@@ -4,6 +4,7 @@ import axios from 'axios';
 import Qs from 'qs';
 import Loading from 'react-loading-animation';
 import LoadingSpinner from './loading.js';
+import RestaurantList from './restaurantlist.js';
 
 class UserInputPage extends React.Component {
     constructor() {
@@ -19,17 +20,7 @@ class UserInputPage extends React.Component {
 
 				</form>
 
-				<ul>
-					{this.props.sliceRestaurants.map((restaurant) => {
-						return (
-							<li>
-								<h2>{restaurant.restaurantInfo.name}</h2>
-								<img src={restaurant.restaurantInfo.image} alt=""/>
-								<p>Price Range: {restaurant.restaurantInfo.price}</p>
-							</li>
-						);
-					})}
-				</ul>
+				<RestaurantList loading={this.props.loading} sliceRestaurants={this.props.sliceRestaurants}/>
 			</div>
     	)
     }
