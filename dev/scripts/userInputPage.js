@@ -37,10 +37,9 @@ class UserInputPage extends React.Component {
 						}
 					</header>
 					<form action="" onSubmit={this.props.handleSubmit}>
-						<input type="text" name="userLocation" value={this.props.userLocation} onChange={this.props.handleChange} placeholder="Street address/City/Country"/>
-						<button type="submit" onClick={() => {
-							this.defineHeaderText();
-						}}>Submit</button>
+
+						<input type="text" autoComplete="off" name="userLocation" value={this.props.userLocation} onChange={this.props.handleChange} placeholder="Street address/City/Country"/>
+						<button type="submit">Submit</button>
 					</form>
 
 					<RestaurantList loading={this.props.loading} sliceRestaurants={this.props.sliceRestaurants}/>

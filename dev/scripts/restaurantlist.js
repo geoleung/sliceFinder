@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Loading from 'react-loading-animation';
 import LoadingSpinner from './loading.js';
+import Flickity from 'react-flickity-component';
 
 const RestaurantList = (props) => {
     if (props.loading === true || props.sliceRestaurants === []) {
@@ -11,8 +12,20 @@ const RestaurantList = (props) => {
             </div>
         )
     } else {
+        const flickityOptions = {
+            initialIndex: 1,
+            wrapAround: true,
+        }
+        
         return (
-            <div className="restaurant-container clearfix">
+            <div className="restaurant-container">
+                <Flickity
+                    className={'carousel'} // default ''
+                    elementType={'div'} // default 'div'
+                    options={flickityOptions} // takes flickity options {}
+                    disableImagesLoaded={false} // default false
+                    reloadOnUpdate // default false
+                >
                 {props.sliceRestaurants.map((restaurant) => {
                     return (
                         <div className="restaurant-card" key={restaurant.restaurantInfo.id}>
@@ -31,6 +44,7 @@ const RestaurantList = (props) => {
                         </div>
                     );
                 })}
+                </Flickity>
             </div>
         );
     }
