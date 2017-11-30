@@ -1,7 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Qs from 'qs';
 import Loading from 'react-loading-animation';
+import Flickity from 'react-flickity';
 
 class UserInputPage extends React.Component {
     constructor() {
@@ -14,10 +16,8 @@ class UserInputPage extends React.Component {
 					<input type="text" name="userLocation" value={this.props.userLocation} onChange={this.props.handleChange} />
 					<button type="submit">Submit</button>
 				</form>
-				<Loading isLoading={this.props.load && this.props.sliceRestaurants.size() == 0}>
 					<ul>
 						{this.props.sliceRestaurants.map((restaurant) => {
-							console.log(restaurant);
 							return (
 								<li>
 									<h2>{restaurant.restaurantInfo.name}</h2>
@@ -27,7 +27,6 @@ class UserInputPage extends React.Component {
 							);
 						})}
 					</ul>
-				</Loading>
 			</div>
     	)
     }

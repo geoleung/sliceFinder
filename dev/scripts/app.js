@@ -6,6 +6,7 @@ import SplashPage from './splashPage.js';
 import UserInputPage from './userInputPage';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Loading from 'react-loading-animation';
+import LoadingSpinner from './loading.js';
 
 class App extends React.Component {
 	constructor() {
@@ -68,6 +69,7 @@ class App extends React.Component {
 		}).then((result) => {
 			const restaurantArray = result.data.businesses;
 
+			//when there are accents in the restaurant IDs we get an error back on the second API call so have to replace any accents with just the plain character
 			let restaurantInfoArray = restaurantArray.map((restaurant) => {
 				restaurant.id = restaurant.id.replace(/[ÀÁÂÃÄÅ]/g, 'A');
 				restaurant.id = restaurant.id.replace(/àáâãäå/g, 'a');
@@ -85,8 +87,6 @@ class App extends React.Component {
 				restaurant.id = restaurant.id.replace(/ñ/g, 'n');
 				restaurant.id = restaurant.id.replace(/[ÝŸ]/g, 'Y');
 				restaurant.id = restaurant.id.replace(/[ýÿ]/g, 'y');
-
-				console.log(restaurant.id);
 				
 				return {
 					id: restaurant.id,
@@ -143,6 +143,7 @@ class App extends React.Component {
 
 				this.setState({
 					restaurantList: restaurantsWithSlice,
+					isLoading: false
 				});
 			});
 		});
@@ -156,7 +157,7 @@ class App extends React.Component {
             {/* Adding paths to different "pages". We use "render" when referencing UserInputPage in order to pass down the props that it needs*/}
             <Route exact path="/" component={SplashPage} />
             <Route exact path="/app" render={(props) => (
-              <UserInputPage {...props} token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} sliceRestaurants={this.state.restaurantList} load={this.state.isLoading} />
+              <UserInputPage {...props} token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} sliceRestaurants={this.state.restaurantList} loading={this.state.isLoading} />
             )}/>
           </Switch>
         </div>
