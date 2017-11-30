@@ -1,0 +1,46 @@
+.userInputPage {
+    background: rgb(243, 34, 34);
+    height: 100vh;
+    
+    header p {
+        color: white;
+        font-size: 2rem;
+        margin: 7px 0;
+    }
+    header p:first-of-type {
+        margin-top: 25vh;
+    }
+    header p:last-of-type {
+        margin-bottom: 5vh;
+    }
+    header, form {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    form {        
+        button {
+            width: 25%;
+            border-radius: 0 2px 2px 0;
+            background: rgb(245, 159, 0);
+            color: white;
+            transition: all 0.25s ease;
+        }
+        button:hover, button:focus, button:active {
+            background: rgb(230, 142, 0);
+        }
+    }
+    input, button {
+        border: none;
+        font-size: 2rem;
+        padding: 8px 5px;
+    }
+    input {
+        width: 75%;
+        border-radius: 2px 0 0 2px;
+        padding-left: 10px;
+    }
+    input::placeholder {
+        color: rgb(185, 185, 185);
+    }
+    
+}

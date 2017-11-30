@@ -1,0 +1,42 @@
+nav {
+    padding: 10px 0;
+    background: rgb(16, 35, 121);
+
+    .logo {
+        font-family: "giddyup-std", sans-serif;
+    }
+    .imageHolder {
+        height: 100%;
+        width: 50px;
+    }
+    .backToSplash {
+        float: left;
+
+        .imageHolder, p {
+            float: left;
+        }
+        p {
+            color: white;
+            font-size: 4rem;
+            margin: 0px 12px;
+        }
+    }
+    .social {
+        float: right;
+
+        a {
+            position: relative;
+        }
+        i {
+            color: white;
+            font-size: 3rem;
+            margin: 10px 0 10px 10px;
+            transition: all 1s ease;
+        }
+        i:hover, i:focus, i:active {
+            // color: red;
+            // font-size: 3.5rem;
+        }
+    }
+
+}
