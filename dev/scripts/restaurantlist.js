@@ -5,20 +5,33 @@ import LoadingSpinner from './loading.js';
 
 const RestaurantList = (props) => {
     if (props.loading === true || props.sliceRestaurants === []) {
-        return <LoadingSpinner />
+        return (
+            <div className="restaurant-container">
+                <LoadingSpinner />
+            </div>
+        )
     } else {
         return (
-            <ul>
+            <div className="restaurant-container clearfix">
                 {props.sliceRestaurants.map((restaurant) => {
                     return (
-                        <li key={restaurant.restaurantInfo.id}>
-                            <h2>{restaurant.restaurantInfo.name}</h2>
-                            <img src={restaurant.restaurantInfo.image} alt="" />
-                            <p>Price Range: {restaurant.restaurantInfo.price}</p>
-                        </li>
+                        <div className="restaurant-card" key={restaurant.restaurantInfo.id}>
+                            <div className="restaurant-info">
+                                <h2>{restaurant.restaurantInfo.name}</h2>
+                                <p className="price">Price Range: {restaurant.restaurantInfo.price}</p>
+                                <div className="address">
+                                    <p>{restaurant.restaurantInfo.address[0]}</p>
+                                    <p>{restaurant.restaurantInfo.address[1]}</p>
+                                    <p>{restaurant.restaurantInfo.address[2]}</p>
+                                </div>
+                            </div>
+                            <div className="restaurant-image">
+                                <img src={restaurant.restaurantInfo.image} alt="" />
+                            </div>
+                        </div>
                     );
                 })}
-            </ul>
+            </div>
         );
     }
 }
