@@ -5,6 +5,7 @@ import Qs from 'qs';
 import SplashPage from './splashPage.js';
 import UserInputPage from './userInputPage';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import Loading from 'react-loading-animation';
 
 class App extends React.Component {
 	constructor() {
@@ -38,6 +39,11 @@ class App extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
+
+		this.setState({
+			userLocation: ''
+		});
+
 		axios({
 			method: 'GET',
 			url: 'http://proxy.hackeryou.com',
@@ -61,6 +67,25 @@ class App extends React.Component {
 			const restaurantArray = result.data.businesses;
 
 			let restaurantInfoArray = restaurantArray.map((restaurant) => {
+				restaurant.id = restaurant.id.replace(/[ÀÁÂÃÄÅ]/g, 'A');
+				restaurant.id = restaurant.id.replace(/àáâãäå/g, 'a');
+				restaurant.id = restaurant.id.replace(/[ÈÉÊË]/g, 'E');
+				restaurant.id = restaurant.id.replace(/[éêèë]/g, 'e');
+				restaurant.id = restaurant.id.replace(/[ÍÎÌÏ]/g, 'I');
+				restaurant.id = restaurant.id.replace(/[íîìï]/g, 'i');
+				restaurant.id = restaurant.id.replace(/[ÓÔØÕÖŐ]/g, 'O');
+				restaurant.id = restaurant.id.replace(/[óôòøõöő]/g, 'o');
+				restaurant.id = restaurant.id.replace(/[ÚÛÙÜŰ]/g, 'U');
+				restaurant.id = restaurant.id.replace(/[úûùüű]/g, 'u');
+				restaurant.id = restaurant.id.replace(/Ç/g, 'C');
+				restaurant.id = restaurant.id.replace(/ç/g, 'c');
+				restaurant.id = restaurant.id.replace(/Ñ/g, 'N');
+				restaurant.id = restaurant.id.replace(/ñ/g, 'n');
+				restaurant.id = restaurant.id.replace(/[ÝŸ]/g, 'Y');
+				restaurant.id = restaurant.id.replace(/[ýÿ]/g, 'y');
+
+				console.log(restaurant.id);
+				
 				return {
 					id: restaurant.id,
 					name: restaurant.name,
