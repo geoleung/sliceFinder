@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Qs from 'qs';
+import Loading from 'react-loading-animation';
 
 class UserInputPage extends React.Component {
     constructor() {
