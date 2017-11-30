@@ -70,11 +70,7 @@ class App extends React.Component {
 				}
 			})
 
-			this.setState({
-				restaurantList: restaurantInfoArray
-			});
-
-			const reviewPromises = this.state.restaurantList.map((restaurant) => {
+			const reviewPromises = restaurantInfoArray.map((restaurant) => {
 				return axios({
 					method: 'GET',
 					url: 'http://proxy.hackeryou.com',
@@ -108,15 +104,21 @@ class App extends React.Component {
 
 				const restaurantListWithReviews = justReviewsArray.map((reviewList, i) => {
 					return {
-						restaurantInfo: this.state.restaurantList[i],
+						restaurantInfo: restaurantInfoArray[i],
 						reviews: reviewList
 					}
 				});
 
+				const restaurantsWithSlice = restaurantListWithReviews.filter((restaurant) => {
+					const slice = /[Ss]lice/;
+					return slice.exec(restaurant.reviews); 
+				})
+
 				this.setState({
-					restaurantList: restaurantListWithReviews,
+					restaurantList: restaurantsWithSlice,
 				});
 			});
+
 		});
 	}
 
@@ -128,7 +130,7 @@ class App extends React.Component {
             {/* Adding paths to different "pages". We use "render" when referencing UserInputPage in order to pass down the props that it needs*/}
             <Route exact path="/" component={SplashPage} />
             <Route exact path="/app" render={(props) => (
-              <UserInputPage {...props} token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} />
+              <UserInputPage {...props} token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} sliceRestaurants={this.state.restaurantList} />
             )}/>
           </Switch>
         </div>
