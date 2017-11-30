@@ -4,25 +4,29 @@
     text-align: center;
     padding-top: 30vh;
 
-    h1, img {
+    .logo, img {
         margin: 0 auto;
     }
     img {
-        width: 200px;
+        width: 160px;
     }
-    h1 {
-        font-size: 6rem;
+    .logo {
+        font-family: "giddyup-std",sans-serif;
+        font-weight: 400;
+        font-size: 8rem;
         display: block;
         text-align: center;
         color: white;
     }
     button {
         border: none;
-        padding: 10px 20px;
+        margin-top: 5vh;
+        padding: 10px 30px;
     }
     a {
         text-decoration: none;
         font-size: 2.5rem;
+        font-size: 2rem;
 
     }
 }

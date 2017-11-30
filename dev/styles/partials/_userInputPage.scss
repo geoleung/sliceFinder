@@ -1,0 +1,17 @@
+.userInputPage {
+    background: rgb(243, 34, 34);
+    height: 100vh;
+
+    form {
+        margin: 0 auto;
+        max-width: 400px;
+        
+        button {
+            width: 25%;
+        }
+    }
+    input {
+        width: 75%;
+    }
+    
+}

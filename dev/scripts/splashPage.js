@@ -11,8 +11,8 @@ class SplashPage extends React.Component {
     render() {
         return(
             <section className="splashPage">
-                <img src="public/assets/logo-white.png" alt="Slice Finder company logo."/>
-                <h1>slice finder</h1>
+                <img src="public/assets/logo-coloured.png" alt="Slice Finder company logo."/>
+                <p className="logo">slice finder</p>
                 <button className="enterSite">
                     <Link to="/app">Enter Site</Link>
                 </button>
