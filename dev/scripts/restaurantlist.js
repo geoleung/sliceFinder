@@ -38,7 +38,6 @@ const RestaurantList = (props) => {
                                     <p>{restaurant.restaurantInfo.address[2]}</p>
                                 </div>
                             </div>
-
                             <div className="restaurant-image">
                                 <img src={restaurant.restaurantInfo.image} alt="" />
                             </div>
