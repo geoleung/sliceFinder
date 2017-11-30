@@ -5,6 +5,8 @@ import Qs from 'qs';
 import SplashPage from './splashPage.js';
 import UserInputPage from './userInputPage';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import Loading from 'react-loading-animation';
+import LoadingSpinner from './loading.js';
 
 class App extends React.Component {
 	constructor() {
@@ -12,7 +14,8 @@ class App extends React.Component {
 		this.state = {
 			accessToken: '',
 			userLocation: '',
-			restaurantList: []
+			restaurantList: [],
+			isLoading: false
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
@@ -38,6 +41,12 @@ class App extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
+
+		this.setState({
+			userLocation: '',
+			isLoading: true
+		});
+
 		axios({
 			method: 'GET',
 			url: 'http://proxy.hackeryou.com',
@@ -60,7 +69,25 @@ class App extends React.Component {
 		}).then((result) => {
 			const restaurantArray = result.data.businesses;
 
+			//when there are accents in the restaurant IDs we get an error back on the second API call so have to replace any accents with just the plain character
 			let restaurantInfoArray = restaurantArray.map((restaurant) => {
+				restaurant.id = restaurant.id.replace(/[ÀÁÂÃÄÅ]/g, 'A');
+				restaurant.id = restaurant.id.replace(/àáâãäå/g, 'a');
+				restaurant.id = restaurant.id.replace(/[ÈÉÊË]/g, 'E');
+				restaurant.id = restaurant.id.replace(/[éêèë]/g, 'e');
+				restaurant.id = restaurant.id.replace(/[ÍÎÌÏ]/g, 'I');
+				restaurant.id = restaurant.id.replace(/[íîìï]/g, 'i');
+				restaurant.id = restaurant.id.replace(/[ÓÔØÕÖŐ]/g, 'O');
+				restaurant.id = restaurant.id.replace(/[óôòøõöő]/g, 'o');
+				restaurant.id = restaurant.id.replace(/[ÚÛÙÜŰ]/g, 'U');
+				restaurant.id = restaurant.id.replace(/[úûùüű]/g, 'u');
+				restaurant.id = restaurant.id.replace(/Ç/g, 'C');
+				restaurant.id = restaurant.id.replace(/ç/g, 'c');
+				restaurant.id = restaurant.id.replace(/Ñ/g, 'N');
+				restaurant.id = restaurant.id.replace(/ñ/g, 'n');
+				restaurant.id = restaurant.id.replace(/[ÝŸ]/g, 'Y');
+				restaurant.id = restaurant.id.replace(/[ýÿ]/g, 'y');
+				
 				return {
 					id: restaurant.id,
 					name: restaurant.name,
@@ -116,6 +143,7 @@ class App extends React.Component {
 
 				this.setState({
 					restaurantList: restaurantsWithSlice,
+					isLoading: false
 				});
 			});
 
@@ -130,7 +158,7 @@ class App extends React.Component {
             {/* Adding paths to different "pages". We use "render" when referencing UserInputPage in order to pass down the props that it needs*/}
             <Route exact path="/" component={SplashPage} />
             <Route exact path="/app" render={(props) => (
-              <UserInputPage {...props} token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} sliceRestaurants={this.state.restaurantList} />
+              <UserInputPage {...props} token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} sliceRestaurants={this.state.restaurantList} loading={this.state.isLoading} />
             )}/>
           </Switch>
         </div>
