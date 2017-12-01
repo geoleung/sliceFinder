@@ -385,7 +385,8 @@ http://flickity.metafizzy.co
   .splashPage img {
     width: 135px;
     position: relative;
-    top: 15px; }
+    top: 15px;
+    animation: vibrate-3 0.5s linear infinite both; }
   .splashPage .logo {
     font-family: "giddyup-std",sans-serif;
     font-weight: 400;
@@ -401,6 +402,30 @@ http://flickity.metafizzy.co
     text-decoration: none;
     font-size: 2.5rem;
     font-size: 2rem; }
+
+@keyframes vibrate-3 {
+  0% {
+    transform: translate(0); }
+  10% {
+    transform: translate(-2px, -2px); }
+  20% {
+    transform: translate(2px, -2px); }
+  30% {
+    transform: translate(-2px, 2px); }
+  40% {
+    transform: translate(2px, 2px); }
+  50% {
+    transform: translate(-2px, -2px); }
+  60% {
+    transform: translate(2px, -2px); }
+  70% {
+    transform: translate(-2px, 2px); }
+  80% {
+    transform: translate(-2px, -2px); }
+  90% {
+    transform: translate(2px, -2px); }
+  100% {
+    transform: translate(0); } }
 
 html {
   font-size: 62.5%; }
@@ -480,16 +505,11 @@ nav {
 .restaurant-container {
   position: relative;
   background: white;
-  min-height: 25vh;
+  min-height: 310px;
   margin: 25px auto;
   padding: 30px 0px 18.5px 0px;
   max-width: 700px;
   border-radius: 2px; }
-<<<<<<< HEAD
-  .restaurant-container .showbox {
-    height: 25vh; }
-=======
->>>>>>> bfbf82127788678b3050eb3fc0670d65a602665b
   .restaurant-container img, .restaurant-container .restaurant-info {
     width: calc(50% - 7.5px);
     float: left;
@@ -497,16 +517,22 @@ nav {
   .restaurant-container .restaurant-info {
     margin-right: 15px; }
   .restaurant-container .restaurant-info p {
-    font-size: 1.5rem; }
+    font-size: 2rem;
+    margin: 5px 0; }
   .restaurant-container h2 {
-    font-size: 3rem;
+    font-size: 4rem;
     font-family: 'Oswald', sans-serif;
-    margin-top: 0; }
+    margin-top: 0;
+    position: relative;
+    line-height: 4rem; }
   .restaurant-container h2::after {
+    content: '';
     position: absolute;
-    height: 20px;
-    width: 20px;
-    background: grey; }
+    height: 1.5px;
+    width: 95%;
+    background: grey;
+    bottom: -15px;
+    left: 0; }
   .restaurant-container img {
     min-width: 100%;
     min-height: 100%;
@@ -540,13 +566,15 @@ body {
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  padding: 5%; }
+  right: 0; }
 
 .loader {
   position: relative;
   margin: 0 auto;
-  width: 100px; }
+  width: 100px;
+  margin-top: 155px;
+  position: relative;
+  transform: translateY(-50%); }
   .loader:before {
     content: '';
     display: block;
