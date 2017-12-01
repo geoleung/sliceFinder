@@ -91,7 +91,6 @@ class App extends React.Component {
 				restaurant.id = restaurant.id.replace(/ñ/g, 'n');
 				restaurant.id = restaurant.id.replace(/[ÝŸ]/g, 'Y');
 				restaurant.id = restaurant.id.replace(/[ýÿ]/g, 'y');
-				console.log(restaurant.id);
 				return {
 					id: restaurant.id,
 					name: restaurant.name,
