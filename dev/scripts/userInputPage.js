@@ -9,8 +9,7 @@ import RestaurantList from './restaurantlist.js';
 
 class UserInputPage extends React.Component {
     constructor() {
-		super();
-		
+		super();	
 	}
 	
     render() {
