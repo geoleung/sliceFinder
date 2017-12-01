@@ -10,15 +10,6 @@ import RestaurantList from './restaurantlist.js';
 class UserInputPage extends React.Component {
     constructor() {
 		super();
-		this.state = {
-			header: "default"
-		}
-		this.makeHeaderCompact = this.makeHeaderCompact.bind(this);
-	}
-	makeHeaderCompact() {
-		this.setState({
-			header: "shortened"
-		});
 	}
     render() {
     	return (
