@@ -10,16 +10,9 @@ import RestaurantList from './restaurantlist.js';
 class UserInputPage extends React.Component {
     constructor() {
 		super();
-		// this.state = {
-		// 	header: "default"
-		// }
-		// this.defineHeaderText = this.defineHeaderText.bind(this);
+		
 	}
-	// defineHeaderText() {
-	// 	this.setState({
-	// 		header: "shortened"
-	// 	});
-	// }
+	
     render() {
     	return (
 			<section className="userInputPage">
@@ -42,7 +35,7 @@ class UserInputPage extends React.Component {
 					</form>
 
 					{this.props.header === "shortened" ? 
-						<RestaurantList loading={this.props.loading} sliceRestaurants={this.props.sliceRestaurants} />
+						<RestaurantList loading={this.props.loading} sliceRestaurants={this.props.sliceRestaurants} noSlice={this.props.noSlice} />
 					: null }
 				</div>
 			</section>

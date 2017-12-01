@@ -16,7 +16,8 @@ class App extends React.Component {
 			userLocation: '',
 			restaurantList: [],
 			isLoading: false,
-			header: 'default'
+			header: 'default',
+			noSlice: 'false'
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
@@ -46,12 +47,13 @@ class App extends React.Component {
 		this.setState({
 			userLocation: '',
 			isLoading: true,
-			header: 'shortened'
+			header: 'shortened',
+			noSlice: false
 		});
 
 		axios({
 			method: 'GET',
-			url: 'http://proxy.hackeryou.com',
+			url: 'https://proxy.hackeryou.com',
 			dataResponse: 'json',
 			paramsSerializer: function (params) {
 				return Qs.stringify(params, { arrayFormat: 'brackets' });
@@ -74,7 +76,7 @@ class App extends React.Component {
 			//when there are accents in the restaurant IDs we get an error back on the second API call so have to replace any accents with just the plain character
 			let restaurantInfoArray = restaurantArray.map((restaurant) => {
 				restaurant.id = restaurant.id.replace(/[ÀÁÂÃÄÅ]/g, 'A');
-				restaurant.id = restaurant.id.replace(/àáâãäå/g, 'a');
+				restaurant.id = restaurant.id.replace(/[àáâãäå]/g, 'a');
 				restaurant.id = restaurant.id.replace(/[ÈÉÊË]/g, 'E');
 				restaurant.id = restaurant.id.replace(/[éêèë]/g, 'e');
 				restaurant.id = restaurant.id.replace(/[ÍÎÌÏ]/g, 'I');
@@ -89,7 +91,7 @@ class App extends React.Component {
 				restaurant.id = restaurant.id.replace(/ñ/g, 'n');
 				restaurant.id = restaurant.id.replace(/[ÝŸ]/g, 'Y');
 				restaurant.id = restaurant.id.replace(/[ýÿ]/g, 'y');
-				
+				console.log(restaurant.id);
 				return {
 					id: restaurant.id,
 					name: restaurant.name,
@@ -102,7 +104,7 @@ class App extends React.Component {
 			const reviewPromises = restaurantInfoArray.map((restaurant) => {
 				return axios({
 					method: 'GET',
-					url: 'http://proxy.hackeryou.com',
+					url: 'https://proxy.hackeryou.com',
 					dataResponse: 'json',
 					paramsSerializer: function (params) {
 						return Qs.stringify(params, { arrayFormat: 'brackets' })
@@ -148,7 +150,11 @@ class App extends React.Component {
 					isLoading: false
 				});
 			});
-		});
+		}).catch((error) => {
+			this.setState({
+				noSlice: true
+			});
+		})
 	}
 
   render() {
@@ -159,7 +165,7 @@ class App extends React.Component {
             {/* Adding paths to different "pages". We use "render" when referencing UserInputPage in order to pass down the props that it needs*/}
             <Route exact path="/" component={SplashPage} />
             <Route exact path="/app" render={(props) => (
-              <UserInputPage {...props} token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} sliceRestaurants={this.state.restaurantList} loading={this.state.isLoading} header={this.state.header} />
+              <UserInputPage {...props} token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} sliceRestaurants={this.state.restaurantList} loading={this.state.isLoading} header={this.state.header} noSlice={this.state.noSlice} />
             )}/>
           </Switch>
         </div>
@@ -169,12 +175,3 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
-
-
-// .then((res) => {
-//   console.log(res);
-// //         for (let i = 0; i < res.data.reviews.length; i++) {
-
-// //           console.log(res.data.reviews[i].text);
-// //         }
-// });

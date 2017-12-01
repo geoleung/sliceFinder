@@ -5,7 +5,17 @@ import LoadingSpinner from './loading.js';
 import Flickity from 'react-flickity-component';
 
 const RestaurantList = (props) => {
-    if (props.loading === true || props.sliceRestaurants === []) {
+    if (props.noSlice === true) {
+        return (
+            <div className="restaurant-container">
+                <div className="error-message">
+                    <p className="hmm">Hmmm...</p>
+                    <p>We're sorry, we couldn't find you any results in your area <span>😳</span></p>
+                    <p>Try rephrasing your search and we'll see what we can do!</p>
+                </div>
+            </div>
+        )
+    } else if (props.loading === true || props.sliceRestaurants === []) {
         return (
             <div className="restaurant-container">
                 <LoadingSpinner />
@@ -13,8 +23,9 @@ const RestaurantList = (props) => {
         )
     } else {
         const flickityOptions = {
-            initialIndex: 1,
+            initialIndex: 0,
             wrapAround: true,
+            imagesLoaded: true,
         }
         
         return (
