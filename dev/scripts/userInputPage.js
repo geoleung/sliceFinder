@@ -10,24 +10,23 @@ import RestaurantList from './restaurantlist.js';
 class UserInputPage extends React.Component {
     constructor() {
 		super();
-		this.state = {
-			header: "default"
-		}
-		this.defineHeaderText = this.defineHeaderText.bind(this);
+		// this.state = {
+		// 	header: "default"
+		// }
+		// this.defineHeaderText = this.defineHeaderText.bind(this);
 	}
-	defineHeaderText() {
-		this.setState({
-			header: "shortened"
-		});
-	}
-    
+	// defineHeaderText() {
+	// 	this.setState({
+	// 		header: "shortened"
+	// 	});
+	// }
     render() {
     	return (
 			<section className="userInputPage">
 				<NavBar />
 				<div className="wrapper">
 					<header>
-						{this.state.header === "default" ? 
+						{this.props.header === "default" ? 
 							<span>
 								<p>Looking for great pizza in your area?</p>
 								<p>Enter your location to find restaurants near you.</p> 
@@ -42,7 +41,9 @@ class UserInputPage extends React.Component {
 						<button type="submit">Submit</button>
 					</form>
 
-					<RestaurantList loading={this.props.loading} sliceRestaurants={this.props.sliceRestaurants}/>
+					{this.props.header === "shortened" ? 
+						<RestaurantList loading={this.props.loading} sliceRestaurants={this.props.sliceRestaurants} />
+					: null }
 				</div>
 			</section>
     	)

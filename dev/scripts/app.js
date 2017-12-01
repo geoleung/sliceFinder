@@ -15,7 +15,8 @@ class App extends React.Component {
 			accessToken: '',
 			userLocation: '',
 			restaurantList: [],
-			isLoading: false
+			isLoading: false,
+			header: 'default'
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
@@ -44,7 +45,8 @@ class App extends React.Component {
 
 		this.setState({
 			userLocation: '',
-			isLoading: true
+			isLoading: true,
+			header: 'shortened'
 		});
 
 		axios({
@@ -96,7 +98,7 @@ class App extends React.Component {
 					price: restaurant.price
 				}
 			})
-
+			
 			const reviewPromises = restaurantInfoArray.map((restaurant) => {
 				return axios({
 					method: 'GET',
@@ -126,7 +128,7 @@ class App extends React.Component {
 				const justReviewsArray = reviewsArray.map((restaurant) => {
 					return restaurant.map((reviews) => {
 						return reviews.text;
-					}).join();
+					}).join()
 				});
 
 				const restaurantListWithReviews = justReviewsArray.map((reviewList, i) => {
@@ -146,7 +148,6 @@ class App extends React.Component {
 					isLoading: false
 				});
 			});
-
 		});
 	}
 
@@ -158,7 +159,7 @@ class App extends React.Component {
             {/* Adding paths to different "pages". We use "render" when referencing UserInputPage in order to pass down the props that it needs*/}
             <Route exact path="/" component={SplashPage} />
             <Route exact path="/app" render={(props) => (
-              <UserInputPage {...props} token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} sliceRestaurants={this.state.restaurantList} loading={this.state.isLoading} />
+              <UserInputPage {...props} token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} sliceRestaurants={this.state.restaurantList} loading={this.state.isLoading} header={this.state.header} />
             )}/>
           </Switch>
         </div>
@@ -168,3 +169,12 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
+
+
+// .then((res) => {
+//   console.log(res);
+// //         for (let i = 0; i < res.data.reviews.length; i++) {
+
+// //           console.log(res.data.reviews[i].text);
+// //         }
+// });
