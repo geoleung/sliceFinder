@@ -385,7 +385,8 @@ http://flickity.metafizzy.co
   .splashPage img {
     width: 135px;
     position: relative;
-    top: 15px; }
+    top: 15px;
+    animation: vibrate-3 0.5s linear infinite both; }
   .splashPage .logo {
     font-family: "giddyup-std",sans-serif;
     font-weight: 400;
@@ -401,6 +402,30 @@ http://flickity.metafizzy.co
     text-decoration: none;
     font-size: 2.5rem;
     font-size: 2rem; }
+
+@keyframes vibrate-3 {
+  0% {
+    transform: translate(0); }
+  10% {
+    transform: translate(-2px, -2px); }
+  20% {
+    transform: translate(2px, -2px); }
+  30% {
+    transform: translate(-2px, 2px); }
+  40% {
+    transform: translate(2px, 2px); }
+  50% {
+    transform: translate(-2px, -2px); }
+  60% {
+    transform: translate(2px, -2px); }
+  70% {
+    transform: translate(-2px, 2px); }
+  80% {
+    transform: translate(-2px, -2px); }
+  90% {
+    transform: translate(2px, -2px); }
+  100% {
+    transform: translate(0); } }
 
 html {
   font-size: 62.5%; }
