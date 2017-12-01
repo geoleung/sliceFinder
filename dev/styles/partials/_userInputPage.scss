@@ -60,6 +60,10 @@
     padding: 30px 0px 18.5px 0px;
     max-width: 700px;
     border-radius: 2px;
+    
+    .showbox {
+        height: 25vh;
+    }
 
     img, .restaurant-info {
         width: calc(50% - 7.5px);
