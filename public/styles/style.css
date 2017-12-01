@@ -485,8 +485,11 @@ nav {
   padding: 30px 0px 18.5px 0px;
   max-width: 700px;
   border-radius: 2px; }
+<<<<<<< HEAD
   .restaurant-container .showbox {
     height: 25vh; }
+=======
+>>>>>>> bfbf82127788678b3050eb3fc0670d65a602665b
   .restaurant-container img, .restaurant-container .restaurant-info {
     width: calc(50% - 7.5px);
     float: left;
