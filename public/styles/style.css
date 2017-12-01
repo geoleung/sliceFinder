@@ -441,18 +441,23 @@ nav {
 
 .userInputPage {
   background: #f32222;
-  min-height: 100vh; }
+  min-height: 100vh;
+  padding-bottom: 1px; }
+  .userInputPage header.compact {
+    margin-top: 5vh; }
+    .userInputPage header.compact p:last-of-type {
+      margin-bottom: 15px; }
   .userInputPage header p {
     color: white;
     font-size: 2rem;
-    margin: 7px 0; }
-  .userInputPage header p:first-of-type {
-    margin-top: 25vh; }
+    margin: 7px auto; }
   .userInputPage header p:last-of-type {
     margin-bottom: 5vh; }
   .userInputPage header, .userInputPage form {
     max-width: 700px;
     margin: 0 auto; }
+  .userInputPage header {
+    margin-top: 25vh; }
   .userInputPage form button {
     width: 25%;
     border-radius: 0 2px 2px 0;
@@ -476,21 +481,50 @@ nav {
   position: relative;
   background: white;
   min-height: 25vh;
-  margin-top: 50px;
-  padding: 15px; }
+  margin: 25px auto;
+  padding: 30px 0px 18.5px 0px;
+  max-width: 700px;
+  border-radius: 2px; }
   .restaurant-container img, .restaurant-container .restaurant-info {
     width: calc(50% - 7.5px);
-    float: left; }
+    float: left;
+    border-radius: 2px; }
   .restaurant-container .restaurant-info {
     margin-right: 15px; }
+  .restaurant-container .restaurant-info p {
+    font-size: 1.5rem; }
+  .restaurant-container h2 {
+    font-size: 3rem;
+    font-family: 'Oswald', sans-serif;
+    margin-top: 0; }
+  .restaurant-container h2::after {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: grey; }
   .restaurant-container img {
-    width: 100%;
-    display: block; }
+    min-width: 100%;
+    min-height: 100%;
+    transform: translatey(-50%);
+    display: block;
+    position: relative;
+    top: 50%; }
   .restaurant-container .restaurant-image {
-    max-height: 300px;
-    overflow: hidden; }
+    height: 250px;
+    overflow: hidden;
+    border-radius: 2px; }
   .restaurant-container .restaurant-card {
-    width: 100%; }
+    width: 100%;
+    padding: 0 30px; }
+  .restaurant-container .arrow {
+    fill: #777; }
+  .restaurant-container .flickity-page-dots {
+    bottom: -53px;
+    position: relative; }
+  .restaurant-container .flickity-prev-next-button.previous {
+    left: -60px; }
+  .restaurant-container .flickity-prev-next-button.next {
+    right: -60px; }
 
 body {
   background-color: #eee; }
