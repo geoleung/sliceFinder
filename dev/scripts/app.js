@@ -51,7 +51,7 @@ class App extends React.Component {
 
 		axios({
 			method: 'GET',
-			url: 'http://proxy.hackeryou.com',
+			url: 'https://proxy.hackeryou.com',
 			dataResponse: 'json',
 			paramsSerializer: function (params) {
 				return Qs.stringify(params, { arrayFormat: 'brackets' });
@@ -102,7 +102,7 @@ class App extends React.Component {
 			const reviewPromises = restaurantInfoArray.map((restaurant) => {
 				return axios({
 					method: 'GET',
-					url: 'http://proxy.hackeryou.com',
+					url: 'https://proxy.hackeryou.com',
 					dataResponse: 'json',
 					paramsSerializer: function (params) {
 						return Qs.stringify(params, { arrayFormat: 'brackets' })
