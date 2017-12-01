@@ -20,7 +20,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 5%;
+  // padding: 5%;
 }
 // end demo-specific
 
@@ -28,6 +28,9 @@ body {
   position: relative;
   margin: 0 auto;
   width: $width;
+  margin-top: 155px;
+  position: relative;
+  transform: translateY(-50%);
   &:before {
     content: '';
     display: block;
