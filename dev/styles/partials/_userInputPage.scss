@@ -1,6 +1,6 @@
 .userInputPage {
     background: rgb(243, 34, 34);
-    height: 100vh;
+    min-height: 100vh;
     
     header p {
         color: white;
@@ -45,6 +45,29 @@
     
 }
 
-.restaurant-card {
-    width: 100%;
+.restaurant-container {
+    position: relative;
+    background: white;
+    min-height: 25vh;
+    margin-top: 50px;
+    padding: 15px;
+
+    img, .restaurant-info {
+        width: calc(50% - 7.5px);
+        float: left;
+    }
+    .restaurant-info {
+        margin-right: 15px;
+    }
+    img {
+        width: 100%;
+        display: block;
+    }
+    .restaurant-image {
+        max-height: 300px;
+        overflow: hidden;
+    }
+    .restaurant-card {
+        width: 100%;
+    }
 }
