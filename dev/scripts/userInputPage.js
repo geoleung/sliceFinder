@@ -18,16 +18,31 @@ class UserInputPage extends React.Component {
 			<section className="userInputPage">
 				<NavBar />
 				<div className="wrapper">
-					<header>
-						{this.props.header === "default" ? 
-							<span>
-								<p>Looking for great pizza in your area?</p>
-								<p>Enter your location to find restaurants near you.</p> 
-							</span>
-							:
-							<p>Location:</p>
-						}
-					</header>
+					{this.props.header === "shortened" ?
+						<header className="compact">
+							{this.props.header === "default" ?
+								<span className="">
+									<p>Looking for great pizza in your area?</p>
+									<p>Enter your location to find restaurants near you.</p>
+								</span>
+								:
+								<p>Location:</p>
+							}
+						</header>
+					:
+						<header className="">
+							{this.props.header === "default" ?
+								<span>
+									<p>Looking for great pizza in your area?</p>
+									<p>Enter your location to find restaurants near you.</p>
+								</span>
+								:
+								<p>Location:</p>
+							}
+						</header>
+					
+					}
+					
 					<form action="" onSubmit={this.props.handleSubmit}>
 
 						<input type="text" autoComplete="off" name="userLocation" value={this.props.userLocation} onChange={this.props.handleChange} placeholder="Street address/City/Country"/>
