@@ -13,8 +13,9 @@ const RestaurantList = (props) => {
         )
     } else {
         const flickityOptions = {
-            initialIndex: 1,
+            initialIndex: 0,
             wrapAround: true,
+            imagesLoaded: true
         }
         
         return (
