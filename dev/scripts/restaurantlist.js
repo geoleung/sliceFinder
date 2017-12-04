@@ -48,8 +48,9 @@ const RestaurantList = (props) => {
                                     <p>{restaurant.restaurantInfo.address[1]}</p>
                                     <p>{restaurant.restaurantInfo.address[2]}</p>
                                 </div>
-
+                                <div className="priceLevel">
                                 <p className="price">Price Range: {restaurant.restaurantInfo.price}</p>
+                                </div>
                             </div>
                             
                             <div className="restaurant-image">
