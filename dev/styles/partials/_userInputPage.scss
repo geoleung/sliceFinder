@@ -125,6 +125,14 @@
     .flickity-prev-next-button.next {
         right: -60px;
     }
+    
+    .priceLevel {
+        position: absolute;
+        bottom: 0;
+        p.price {
+            margin: 0;
+        }
+    }
 }
 
 .error-message {
@@ -165,10 +173,5 @@
             width: 12%;
             display: inline-block;
         }
-    }
-
-    .priceLevel {
-        position: absolute;
-        bottom: 0;
     }
 }
