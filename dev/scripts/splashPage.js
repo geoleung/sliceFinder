@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import UserInputPage from './userInputPage';
+import Credits from './credits';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 
@@ -14,6 +15,7 @@ class SplashPage extends React.Component {
         this.logoHover = this.logoHover.bind(this);
         this.logoStatic = this.logoStatic.bind(this);
     }
+    
     logoHover() {
         this.setState({
             logoHover: true
@@ -37,6 +39,7 @@ class SplashPage extends React.Component {
                 <button className="enterSite" onMouseEnter={this.logoHover} onMouseLeave={this.logoStatic}>
                     <Link to="/app">Enter Site</Link>
                 </button>
+                <Credits />
             </section>
         )
     }

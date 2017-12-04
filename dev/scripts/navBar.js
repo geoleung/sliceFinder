@@ -1,16 +1,19 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import SplashPage from './splashPage';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 class NavBar extends React.Component {
     render() {
         return (
             <nav className="clearfix">
                 <div className="wrapper clearfix">
-                    <a href="#" className="backToSplash clearfix">
+                    <Link to="/" className="backToSplash">
                         <div className="imageHolder">
-                            <img src="public/assets/logo-coloured.png" alt="Slice Finder company logo."/>
+                            <img src="public/assets/logo-coloured.png" alt="Slice Finder company logo." />
                         </div>
                         <p className="logo">slice finder</p>
-                    </a>
+                    </Link>
                     <div className="social">
                         <a href="https://github.com/GottaCacheEmAll/sliceFinder">
                             <i className="fa fa-github" aria-hidden="true" aria-label="View on GitHub"></i>
