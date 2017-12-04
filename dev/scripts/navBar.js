@@ -4,7 +4,7 @@ class NavBar extends React.Component {
     render() {
         return (
             <nav className="clearfix">
-                <div className="wrapper">
+                <div className="wrapper clearfix">
                     <a href="#" className="backToSplash clearfix">
                         <div className="imageHolder">
                             <img src="public/assets/logo-coloured.png" alt="Slice Finder company logo."/>
