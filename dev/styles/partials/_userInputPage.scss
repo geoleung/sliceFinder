@@ -255,7 +255,6 @@
             }
         }
 
-        
     }
 
     .priceLevel {
@@ -284,6 +283,8 @@
     }
 
     .restaurant-container {
+        min-height: 371px;
+
         h2::after {
             width: 100%;
         }
@@ -318,5 +319,20 @@
 
     .userInputPage form {
         margin-top: 15px;
+    }
+}
+
+@media (max-width: 370px) {
+    .restaurant-container {
+        margin-top: 10px;
+        min-height: 406px;
+
+        h2 {
+            font-size: 3rem;
+        }
+
+        .flickity-page-dots {
+            bottom: -30px;
+        }
     }
 }

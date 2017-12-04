@@ -1,3 +1,5 @@
+/* ======== NAV BAR STYLES ======= */
+
 nav {
     padding: 10px 0;
     background: rgb(16, 35, 121);
@@ -40,4 +42,29 @@ nav {
         }
     }
 
+}
+
+/* Nav bar responsive */
+
+@media (max-width: 370px) {
+    nav {
+        padding: 0;
+        
+        .imageHolder {
+            width: 38px;
+            margin-top: 2px;
+        }
+        
+        .backToSplash {
+            margin-top: 2px;
+        }
+
+        .backToSplash p {
+            font-size: 3.5rem;
+        }
+
+        .social i {
+            font-size: 2.5rem;
+        }
+    }
 }
