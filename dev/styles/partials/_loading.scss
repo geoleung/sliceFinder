@@ -95,3 +95,9 @@ body {
     stroke: $blue;
   }
 }
+
+@media (max-width: 505px) {
+  .loader {
+    margin-top: 135px;
+  }
+}
