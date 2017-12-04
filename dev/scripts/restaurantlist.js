@@ -9,9 +9,14 @@ const RestaurantList = (props) => {
         return (
             <div className="restaurant-container">
                 <div className="error-message">
-                    <p className="hmm">Hmmm...</p>
-                    <p>We're sorry, we couldn't find you any results in your area <span>😳</span></p>
-                    <p>Try rephrasing your search and we'll see what we can do!</p>
+                    <div>
+                        <p className="hmm">Hmmm...</p>
+                        <p>We're sorry, we couldn't find you any results in your area <span>😳</span></p>
+                        <p>Try rephrasing your search and we'll see what we can do!</p>
+                        <div className="error-image">
+                            <img src="public/assets/logo-coloured.png" alt="Slice Finder company logo"/>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
