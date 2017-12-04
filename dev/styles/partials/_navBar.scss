@@ -23,7 +23,6 @@ nav {
     }
     .social {
         float: right;
-
         a {
             position: relative;
         }
@@ -33,9 +32,15 @@ nav {
             margin: 10px 0 10px 10px;
             transition: all 1s ease;
         }
-        i:hover, i:focus, i:active {
-            // color: red;
-            // font-size: 3.5rem;
+        // i:hover, i:focus, i:active {
+        //     color: red;
+        //     font-size: 3.5rem;
+        // }
+        .fa {
+            margin: 10px;
+        }
+        .fa:hover {
+            transform: scale(1.5);
         }
     }
 
