@@ -216,6 +216,11 @@
     .restaurant-container {
         max-width: 600px;
     }
+
+    .restaurant-container .restaurant-info p {
+        font-size: 1.8rem;
+        margin: 3px 0;
+    }
 }
 
 @media (max-width: 690px) {
@@ -226,7 +231,7 @@
 
 @media (max-width: 580px) {
     .restaurant-container {
-        height: 375px;
+        min-height: 283px;
         padding-top: 15px;
         padding-bottom: 0;
 
@@ -240,11 +245,6 @@
             &::after {
                 bottom: -10px;
             }
-        }
-
-        .restaurant-info p {
-            font-size: 1.8rem;
-            margin: 3px 0;
         }
     }
 
@@ -267,13 +267,14 @@
     }
 }
 
-@media (max-width: 490px) {
-
+@media (max-width: 505px) {
     .priceLevel {
         display: none;
     }
 
     .restaurant-container {
+        min-height: 371px;
+
         h2::after {
             width: 100%;
         }
@@ -308,5 +309,20 @@
 
     .userInputPage form {
         margin-top: 15px;
+    }
+}
+
+@media (max-width: 370px) {
+    .restaurant-container {
+        margin-top: 10px;
+        min-height: 406px;
+
+        h2 {
+            font-size: 3rem;
+        }
+
+        .flickity-page-dots {
+            bottom: -30px;
+        }
     }
 }
