@@ -1,3 +1,5 @@
+/* ======== USER INPUT PAGE STYLES ======== */ 
+
 .userInputPage {
     background: rgb(243, 34, 34);
     min-height: 100vh;
@@ -78,7 +80,7 @@
         margin: 5px 0
     }
     h2 {
-        font-size: 4rem;
+        font-size: 3.5rem;
         font-family: 'Oswald', sans-serif;
         margin-top: 0;
         position: relative;
@@ -119,6 +121,11 @@
         bottom: -53px;
         position: relative;
     }
+
+    .flickity-prev-next-button {
+        transition: 0.3s;
+    }
+
     .flickity-prev-next-button.previous {
         left: -60px;
     }
@@ -166,13 +173,156 @@
             display: inline-block;
         }
     }
-
 }
-    .priceLevel {
-        position: absolute;
-        bottom: 0;
-        
-        p.price {
-            margin: 0;
+
+.priceLevel {
+    position: absolute;
+    bottom: 0;
+
+    p.price {
+        margin: 0;
+    }
+}
+
+/* User Input Page Responsive */
+
+@media (max-width: 870px) {
+    .flickity-prev-next-button {
+        background: none;
+
+        .arrow {
+            transition: 0.3s;
+        }
+
+        &:hover {
+            background: none;
+
+            .arrow {
+                fill: #fff;
+            }
         }
     }
+
+    .restaurant-container .flickity-prev-next-button.next {
+        right: -45px;
+    }
+
+    .restaurant-container .flickity-prev-next-button.previous {
+        left: -45px;
+    }
+
+    .userInputPage form,
+    .userInputPage header,
+    .restaurant-container {
+        max-width: 600px;
+    }
+
+    .restaurant-container .restaurant-info p {
+        font-size: 1.8rem;
+        margin: 3px 0;
+    }
+}
+
+@media (max-width: 690px) {
+    .flickity-prev-next-button {
+        display: none;
+    }
+}
+
+@media (max-width: 580px) {
+    .restaurant-container {
+        min-height: 283px;
+        padding-top: 15px;
+        padding-bottom: 0;
+
+        .restaurant-card {
+            padding: 0 15px;
+        }
+
+        h2 {
+            font-size: 3.5rem;
+
+            &::after {
+                bottom: -10px;
+            }
+        }
+    }
+
+    .priceLevel {
+        bottom: -4px;
+        position: static;
+    }
+
+    .restaurant-container .restaurant-info {
+        width: calc(40% - 7.5px);
+    }
+
+    .restaurant-container .restaurant-image {
+        width: calc(60% - 7.5px);
+    }
+
+    .address p:nth-of-type(2),
+    .address p:nth-of-type(3) {
+        display: none;
+    }
+}
+
+@media (max-width: 505px) {
+    .priceLevel {
+        display: none;
+    }
+
+    .restaurant-container {
+        min-height: 371px;
+
+        h2::after {
+            width: 100%;
+        }
+    }
+
+    .restaurant-container .restaurant-image, .restaurant-container .restaurant-info {
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .userInputPage input,
+    .userInputPage button {
+        font-size: 1.7rem;
+    }
+
+    .userInputPage header p {
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 400px) {
+    .userInputPage header p {
+        font-size: 1.8rem;
+        margin: 20px auto;
+    }
+
+    .compact {
+        display: none;
+    }
+
+    .userInputPage form {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 370px) {
+    .restaurant-container {
+        margin-top: 10px;
+        min-height: 406px;
+
+        h2 {
+            font-size: 3rem;
+        }
+
+        .flickity-page-dots {
+            bottom: -30px;
+        }
+    }
+}

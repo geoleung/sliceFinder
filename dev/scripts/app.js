@@ -75,13 +75,13 @@ class App extends React.Component {
 
 			//when there are accents in the restaurant IDs we get an error back on the second API call so have to replace any accents with just the plain character
 			let restaurantInfoArray = restaurantArray.map((restaurant) => {
-				restaurant.id = restaurant.id.replace(/[ÀÁÂÃÄÅ]/g, 'A');
-				restaurant.id = restaurant.id.replace(/[àáâãäå]/g, 'a');
+				restaurant.id = restaurant.id.replace(/[ÀÁÂÃÄÅĀ]/g, 'A');
+				restaurant.id = restaurant.id.replace(/[àáâãäåā]/g, 'a');
 				restaurant.id = restaurant.id.replace(/[ÈÉÊË]/g, 'E');
 				restaurant.id = restaurant.id.replace(/[éêèë]/g, 'e');
 				restaurant.id = restaurant.id.replace(/[ÍÎÌÏ]/g, 'I');
 				restaurant.id = restaurant.id.replace(/[íîìï]/g, 'i');
-				restaurant.id = restaurant.id.replace(/[ÓÔØÕÖŐ]/g, 'O');
+				restaurant.id = restaurant.id.replace(/[ÓÔÒØÕÖŐ]/g, 'O');
 				restaurant.id = restaurant.id.replace(/[óôòøõöő]/g, 'o');
 				restaurant.id = restaurant.id.replace(/[ÚÛÙÜŰ]/g, 'U');
 				restaurant.id = restaurant.id.replace(/[úûùüű]/g, 'u');
