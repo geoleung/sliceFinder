@@ -167,8 +167,12 @@
         }
     }
 
+}
     .priceLevel {
         position: absolute;
         bottom: 0;
+        
+        p.price {
+            margin: 0;
+        }
     }
-}
