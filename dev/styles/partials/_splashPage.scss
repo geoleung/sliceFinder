@@ -1,3 +1,15 @@
+@keyframes hover {
+        0% {
+            top: 15px;
+        }
+        50% {
+            top: -5px;
+        }
+        100% {
+            top: 15px;
+        }
+    }
+
 .splashPage {
     background: rgb(243, 34, 34);
     height: 100vh;
@@ -12,6 +24,12 @@
         position: relative;
         top: 15px;
     }
+    .hover {
+        animation: hover 1.2s ease-in-out infinite;
+    }
+    img:hover {
+        animation: hover 1.2s ease-in-out infinite;
+    }
     .logo {
         font-family: "giddyup-std",sans-serif;
         font-weight: 400;
@@ -21,11 +39,21 @@
         color: white;
     }
     button {
-        border: none;
+        background: transparent;
+        border: 2px solid white;
         margin-top: 5vh;
         padding: 10px 30px;
     }
+    button:hover {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 10px 29px;
+    }
+    button:hover a {
+        font-weight: 500;
+    }
     a {
+        transform: scale(2);
+        color: white;
         text-decoration: none;
         font-size: 2.5rem;
         font-size: 2rem;
