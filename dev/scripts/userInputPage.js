@@ -6,6 +6,7 @@ import NavBar from './navBar';
 import Loading from 'react-loading-animation';
 import LoadingSpinner from './loading.js';
 import RestaurantList from './restaurantlist.js';
+import Credits from './credits';
 
 class UserInputPage extends React.Component {
     constructor() {
@@ -52,6 +53,7 @@ class UserInputPage extends React.Component {
 						<RestaurantList loading={this.props.loading} sliceRestaurants={this.props.sliceRestaurants} noSlice={this.props.noSlice} />
 					: null }
 				</div>
+				<Credits />
 			</section>
     	)
     }
