@@ -43,8 +43,8 @@ class UserInputPage extends React.Component {
 					}
 					
 					<form action="" onSubmit={this.props.handleSubmit}>
-
-						<input type="text" autoComplete="off" name="userLocation" value={this.props.userLocation} onChange={this.props.handleChange} placeholder="Street address/City/Country"/>
+						<label htmlFor="userLocation" className="sr-only">Enter your location</label>
+						<input type="text" autoComplete="off" name="userLocation" value={this.props.userLocation} onChange={this.props.handleChange} placeholder="Enter your city"/>
 						<button type="submit">Submit</button>
 					</form>
 
