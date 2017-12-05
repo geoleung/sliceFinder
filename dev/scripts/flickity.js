@@ -6,6 +6,7 @@ const flickityOptions = {
     accessibility: true,
     pageDots: true,
     wrapAround: true,
+    setGallerySize: false,
     autoPlay: 3000 // default false 
 }
 
