@@ -18,7 +18,7 @@ class NavBar extends React.Component {
                         <a href="https://github.com/GottaCacheEmAll/sliceFinder">
                             <i className="fa fa-github" aria-hidden="true" aria-label="View on GitHub"></i>
                         </a>
-                        <a href="https://twitter.com/intent/tweet?text=Looking for a great slice of pizza in your area? Check out SliceFinder at ADD URL HERE!&hashtags=slicefinder" className="tweet" target="_blank">
+                        <a href="https://twitter.com/intent/tweet?text=Looking for a great slice of pizza in your area? Check out SliceFinder at http://bit.ly/2km4PYf !&hashtags=slicefinder" className="tweet" target="_blank">
                             <i className="fa fa-twitter" aria-hidden="true" aria-label="Share on twitter."></i>
                         </a>
                     </div>
