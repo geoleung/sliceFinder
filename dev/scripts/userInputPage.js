@@ -10,7 +10,7 @@ import Credits from './credits';
 
 class UserInputPage extends React.Component {
     constructor() {
-		super();	
+		super();
 	}
     render() {
     	return (
