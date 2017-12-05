@@ -295,7 +295,9 @@ button.more:hover, button.more:focus, button.more:active {
 }
 
 @media (max-width: 505px) {
-
+    .userInputPage header .location {
+        text-align: left;
+    }
     .priceLevel {
         display: none;
     }
@@ -369,5 +371,14 @@ button.more:hover, button.more:focus, button.more:active {
     button.more {
         font-size: 1.6rem;
         bottom: 4vw;
+    }
+}
+@media (max-height: 600px) {
+    .userInputPage header p.location {
+        margin-bottom: 4px;
+        margin-top: -10px;
+    }
+    .restaurant-container {
+        margin-top: 10px;
     }
 }

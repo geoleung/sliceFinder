@@ -33,7 +33,7 @@ class UserInputPage extends React.Component {
 									<p>Enter your location to find restaurants near you.</p>
 								</span>
 								:
-								<p>Location:</p>
+								<p className="location">Location:</p>
 							}
 						</header>
 					:
