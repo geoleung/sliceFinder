@@ -335,7 +335,12 @@ button.more:hover, button.more:focus, button.more:active {
     }
 
     .restaurant-container {
-        min-height: 371px;
+        margin-top: 10px;
+        min-height: 406px;
+
+        h2 {
+            font-size: 3rem;
+        }
 
         h2::after {
             width: 100%;
@@ -361,7 +366,7 @@ button.more:hover, button.more:focus, button.more:active {
     }
 
     .restaurant-container .flickity-page-dots {
-        bottom: -372px;
+        bottom: -354px;
     }
 
     .flickity-page-dots .dot {
@@ -380,7 +385,6 @@ button.more:hover, button.more:focus, button.more:active {
     .userInputPage header p {
         text-align: center;
     }
-
 }
 
 @media (max-width: 400px) {
@@ -405,19 +409,6 @@ button.more:hover, button.more:focus, button.more:active {
 }
 
 @media (max-width: 370px) {
-    .restaurant-container {
-        margin-top: 10px;
-        min-height: 406px;
-
-        h2 {
-            font-size: 3rem;
-        }
-
-        .flickity-page-dots {
-            bottom: -354px;
-        }
-    }
-
     button.more {
         font-size: 1.5rem;
         bottom: -45px;
