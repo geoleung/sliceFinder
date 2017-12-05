@@ -1,4 +1,4 @@
-#Slice Finder
+# Slice Finder
 
 Project Slice Finder by Amanda Silberberg, Gaby Küpfer, and Geoffrey Leung.
 
