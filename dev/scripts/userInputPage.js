@@ -10,9 +10,16 @@ import Credits from './credits';
 
 class UserInputPage extends React.Component {
     constructor() {
-		super();	
+		super();
+		this.getMoreRestaurants = this.getMoreRestaurants.bind(this);	
 	}
 	
+	getMoreRestaurants() {
+		const newOffset = this.props.offset + 50;
+
+		this.props.setOffset(newOffset);
+	}
+
     render() {
     	return (
 			<section className="userInputPage">
@@ -40,7 +47,6 @@ class UserInputPage extends React.Component {
 								<p>Location:</p>
 							}
 						</header>
-					
 					}
 					
 					<form action="" onSubmit={this.props.handleSubmit}>
@@ -52,6 +58,10 @@ class UserInputPage extends React.Component {
 					{this.props.header === "shortened" ? 
 						<RestaurantList loading={this.props.loading} sliceRestaurants={this.props.sliceRestaurants} noSlice={this.props.noSlice} />
 					: null }
+
+					{this.props.header === "shortened" ?
+						<button className="more" onClick={this.getMoreRestaurants}>Show me more!</button>
+					: null}
 				</div>
 				<Credits />
 			</section>
