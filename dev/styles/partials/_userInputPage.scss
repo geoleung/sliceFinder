@@ -204,7 +204,7 @@ button.more {
     transition: all 0.25s ease;
     padding: 8px 15px;
     position: absolute;
-    bottom: -95px;
+    bottom: -70px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -303,6 +303,12 @@ button.more:hover, button.more:focus, button.more:active {
 }
 
 @media (max-width: 505px) {
+    .userInputPage form {
+        margin-top: 10px;
+    }
+    .compact {
+        display: none;
+    }
     .userInputPage header .location {
         text-align: left;
     }
@@ -351,10 +357,6 @@ button.more:hover, button.more:focus, button.more:active {
     .userInputPage header p {
         font-size: 1.8rem;
         margin: 20px auto;
-    }
-
-    .compact {
-        display: none;
     }
 
     .userInputPage form {
