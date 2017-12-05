@@ -5,6 +5,7 @@ import LoadingSpinner from './loading.js';
 import Flickity from 'react-flickity-component';
 
 const RestaurantList = (props) => {
+    console.log(props);
     if (props.noSlice === true) {
         return (
             <div className="restaurant-container">
@@ -20,7 +21,7 @@ const RestaurantList = (props) => {
                 </div>
             </div>
         )
-    } else if (props.loading === true || props.sliceRestaurants === []) {
+    } else if (props.loading === true || props.sliceRestaurants.length === 0) {
         return (
             <div className="restaurant-container">
                 <LoadingSpinner />

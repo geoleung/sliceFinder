@@ -192,6 +192,22 @@
     }
 }
 
+button.more {
+    border-radius: 0 2px 2px 0;
+    background: rgb(245, 159, 0);
+    color: white;
+    transition: all 0.25s ease;
+    padding: 8px 15px;
+    position: absolute;
+    bottom: 6vw;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+button.more:hover, button.more:focus, button.more:active {
+    background: rgb(230, 142, 0);
+}
+
 /* User Input Page Responsive */
 
 @media (max-width: 870px) {
@@ -335,5 +351,10 @@
         .flickity-page-dots {
             bottom: -30px;
         }
+    }
+
+    button.more {
+        font-size: 1.6rem;
+        bottom: 4vw;
     }
 }

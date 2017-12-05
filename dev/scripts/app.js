@@ -17,10 +17,13 @@ class App extends React.Component {
 			restaurantList: [],
 			isLoading: false,
 			header: 'default',
-			noSlice: 'false'
+			noSlice: 'false',
+			apiOffset: 1
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
+		this.getPizza = this.getPizza.bind(this);
+		this.setOffset = this.setOffset.bind(this);
 	}
 
 	componentDidMount() {
@@ -45,12 +48,15 @@ class App extends React.Component {
 		e.preventDefault();
 
 		this.setState({
-			userLocation: '',
 			isLoading: true,
 			header: 'shortened',
 			noSlice: false
 		});
 
+		this.getPizza();
+	}
+
+	getPizza() {
 		axios({
 			method: 'GET',
 			url: 'https://proxy.hackeryou.com',
@@ -64,6 +70,7 @@ class App extends React.Component {
 					location: this.state.userLocation,
 					categories: 'pizza',
 					limit: 50,
+					offset: this.state.apiOffset
 				},
 				proxyHeaders: {
 					'Authorization': `Bearer ${this.state.accessToken}`,
@@ -72,7 +79,7 @@ class App extends React.Component {
 			}
 		}).then((result) => {
 			const restaurantArray = result.data.businesses;
-
+	
 			//when there are accents in the restaurant IDs we get an error back on the second API call so have to replace any accents with just the plain character
 			let restaurantInfoArray = restaurantArray.map((restaurant) => {
 				restaurant.id = restaurant.id.replace(/[ÀÁÂÃÄÅĀ]/g, 'A');
@@ -91,6 +98,7 @@ class App extends React.Component {
 				restaurant.id = restaurant.id.replace(/ñ/g, 'n');
 				restaurant.id = restaurant.id.replace(/[ÝŸ]/g, 'Y');
 				restaurant.id = restaurant.id.replace(/[ýÿ]/g, 'y');
+				
 				return {
 					id: restaurant.id,
 					name: restaurant.name,
@@ -120,30 +128,30 @@ class App extends React.Component {
 					}
 				})
 			})
-
+	
 			Promise.all(reviewPromises).then((response) => {
 				const reviewsArray = response.map((restaurant) => {
 					return restaurant.data.reviews;
 				});
-
+	
 				const justReviewsArray = reviewsArray.map((restaurant) => {
 					return restaurant.map((reviews) => {
 						return reviews.text;
 					}).join()
 				});
-
+	
 				const restaurantListWithReviews = justReviewsArray.map((reviewList, i) => {
 					return {
 						restaurantInfo: restaurantInfoArray[i],
 						reviews: reviewList
 					}
 				});
-
+	
 				const restaurantsWithSlice = restaurantListWithReviews.filter((restaurant) => {
 					const slice = /[Ss]lice/;
 					return slice.exec(restaurant.reviews); 
 				})
-
+	
 				this.setState({
 					restaurantList: restaurantsWithSlice,
 					isLoading: false
@@ -155,22 +163,29 @@ class App extends React.Component {
 			});
 		})
 	}
+	
+	setOffset(newOffset) {
+		this.setState({
+			apiOffset: newOffset,
+			isLoading: true
+		}, this.getPizza);
+	}
 
-  render() {
-    return (
-      <Router>
-        <div>
-          <Switch>
-            {/* Adding paths to different "pages". We use "render" when referencing UserInputPage in order to pass down the props that it needs*/}
-            <Route exact path="/" component={SplashPage} />
-            <Route exact path="/app" render={(props) => (
-              <UserInputPage {...props} token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} sliceRestaurants={this.state.restaurantList} loading={this.state.isLoading} header={this.state.header} noSlice={this.state.noSlice} />
-            )}/>
-          </Switch>
-        </div>
-      </Router>
-    )
-  }
+	render() {
+		return (
+			<Router>
+			<div>
+				<Switch>
+				{/* Adding paths to different "pages". We use "render" when referencing UserInputPage in order to pass down the props that it needs*/}
+				<Route exact path="/" component={SplashPage} />
+				<Route exact path="/app" render={(props) => (
+					<UserInputPage {...props} token={this.state.accessToken} handleChange={this.handleChange} handleSubmit={this.handleSubmit} userLocation={this.state.userLocation} sliceRestaurants={this.state.restaurantList} loading={this.state.isLoading} header={this.state.header} noSlice={this.state.noSlice} setOffset={this.setOffset} offset={this.state.apiOffset} />
+				)}/>
+				</Switch>
+			</div>
+			</Router>
+		)
+	}
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
