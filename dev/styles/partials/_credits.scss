@@ -1,4 +1,5 @@
 .credits {
+    width: calc(100% - 30px);
     border: none;
     display: inline;
     position: absolute;
@@ -39,5 +40,13 @@
     }
     .allInfo {
         margin-top: 1px;
+        max-width: calc(100% - 45px);
+        text-align: left;
+    }
+}
+
+@media (max-width: 400px) {
+    .credits p, .credits a {
+        font-size: 1.25rem;
     }
 }
