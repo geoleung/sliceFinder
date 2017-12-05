@@ -65,3 +65,17 @@
         padding: 12.5px 34px;
     }
 }
+
+/* Splash Page Responsive */
+
+@media (max-height: 420px) {
+    .splashPage {
+        padding-top: 13vh;
+    }
+}
+
+@media (max-height: 330px) {
+    .splashPage {
+        padding-top: 1vh;
+    }
+}
