@@ -299,7 +299,9 @@ button.more:hover, button.more:focus, button.more:active {
 }
 
 @media (max-width: 505px) {
-
+    .userInputPage header .location {
+        text-align: left;
+    }
     .priceLevel {
         display: none;
     }
