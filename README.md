@@ -10,3 +10,4 @@ The API search will return results for the names, IDs, addresses, price ranges, 
 The results are filtered by review to only keep reviews that contain the word "slice".
 If the location does not exist or no results are found, an error will return.
 The filtered results are then displayed to the page.
+Because the API returns only 50 restaurants per request, users can click the Show Me More button to make additional calls to the API with a specific request for the next 50 restaurants that meet the search criteria.
