@@ -97,6 +97,12 @@ body {
   }
 }
 
+@media (max-width: 580px) {
+   .loader {
+     margin-top: 140px;
+   }
+}
+
 @media (max-width: 505px) {
   .loader {
     margin-top: 175px;
