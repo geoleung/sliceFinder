@@ -200,14 +200,15 @@
 
         .arrow {
             transition: 0.3s;
+            fill: #fff;
         }
 
         &:hover {
             background: none;
 
-            .arrow {
-                fill: #fff;
-            }
+        //     .arrow {
+        //         fill: #fff;
+        //     }
         }
     }
 
