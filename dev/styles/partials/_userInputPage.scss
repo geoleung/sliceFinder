@@ -215,7 +215,7 @@ button.more {
     transition: all 0.25s ease;
     padding: 8px 15px;
     position: absolute;
-    bottom: -70px;
+    bottom: -91px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -391,10 +391,6 @@ button.more:hover, button.more:focus, button.more:active {
     .userInputPage header p {
         text-align: center;
     }
-
-    button.more {
-      bottom: -70px;
-    }
 }
 
 @media (max-width: 400px) {
@@ -433,6 +429,10 @@ button.more:hover, button.more:focus, button.more:active {
     }
     .restaurant-container .flickity-page-dots {
         bottom: -290px;
+    }
+
+    button.more {
+        bottom: -70px;
     }
 }
 @media (max-height: 620px) and (max-width: 580px) {
