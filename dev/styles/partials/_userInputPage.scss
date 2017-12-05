@@ -117,8 +117,18 @@
     .arrow {
         fill: #777;
     }
+
+    .carousel {
+        height: 262px;
+    }
+
+    .carousel .flickity-viewport {
+        position: absolute;
+        width: 100%;
+    }   
+
     .flickity-page-dots {
-        bottom: -53px;
+        bottom: -303px;
         position: relative;
     }
 
@@ -141,6 +151,7 @@
         }
     }
 }
+
 .userInputPage form, .userInputPage header, .restaurant-container {
         transition: max-width 1s ease,
                     width 1s ease;
@@ -253,6 +264,11 @@ button.more:hover, button.more:focus, button.more:active {
     .flickity-prev-next-button {
         display: none;
     }
+
+    .flickity-page-dots .dot {
+        height: 9px;
+        width: 9px;
+    }
 }
 
 @media (max-width: 580px) {
@@ -272,7 +288,6 @@ button.more:hover, button.more:focus, button.more:active {
                 bottom: -10px;
             }
         }
-
     }
 
     .restaurant-container .priceLevel {
@@ -294,7 +309,16 @@ button.more:hover, button.more:focus, button.more:active {
     }
 
     .restaurant-container .flickity-page-dots {
-        bottom: -34px;
+        bottom: -283px;
+    }
+
+    .flickity-page-dots .dot {
+        height: 6px;
+        width: 6px;
+    }
+
+    .restaurant-container .carousel {
+        height: 260px;
     }
 
     button.more {
@@ -342,6 +366,18 @@ button.more:hover, button.more:focus, button.more:active {
         margin-bottom: 15px;
     }
 
+    .restaurant-container .flickity-page-dots {
+        bottom: -372px;
+    }
+
+    .flickity-page-dots .dot {
+        margin: 0 5px;
+    }
+
+    .restaurant-container .carousel {
+        height: 340px;
+    }
+
     .userInputPage input,
     .userInputPage button {
         font-size: 1.7rem;
@@ -362,6 +398,12 @@ button.more:hover, button.more:focus, button.more:active {
     .userInputPage form {
         margin-top: 15px;
     }
+
+    .flickity-page-dots .dot {
+        height: 4px;
+        width: 4px;
+        margin: 0 4px;
+    }
 }
 
 @media (max-width: 370px) {
@@ -374,12 +416,12 @@ button.more:hover, button.more:focus, button.more:active {
         }
 
         .flickity-page-dots {
-            bottom: -30px;
+            bottom: -354px;
         }
     }
 
     button.more {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         bottom: -55px;
     }
 }
