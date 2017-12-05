@@ -54,12 +54,8 @@ class UserInputPage extends React.Component {
 						<button type="submit">Submit</button>
 					</form>
 					{this.props.header === "shortened" ? 
-						<RestaurantList loading={this.props.loading} sliceRestaurants={this.props.sliceRestaurants} noSlice={this.props.noSlice} />
+						<RestaurantList loading={this.props.loading} sliceRestaurants={this.props.sliceRestaurants} noSlice={this.props.noSlice} header={this.props.header} getMoreRestaurants={this.getMoreRestaurants} offset={this.props.offset} />
 					: null }
-
-					{this.props.header === "shortened" ?
-						<button className="more" onClick={this.getMoreRestaurants}>Show me more!</button>
-					: null}
 				</div>
 			</section>
     	)
