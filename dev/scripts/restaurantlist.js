@@ -5,7 +5,6 @@ import LoadingSpinner from './loading.js';
 import Flickity from 'react-flickity-component';
 
 const RestaurantList = (props) => {
-    console.log(props);
     if (props.noSlice === true) {
         return (
             <div className="restaurant-container">
@@ -66,6 +65,10 @@ const RestaurantList = (props) => {
                     );
                 })}
                 </Flickity>
+
+                {props.header === "shortened" ?
+						<button className="more" onClick={props.getMoreRestaurants}>Show me more!</button>
+				: null}
             </div>
         );
     }
