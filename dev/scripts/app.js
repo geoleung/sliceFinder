@@ -50,10 +50,9 @@ class App extends React.Component {
 		this.setState({
 			isLoading: true,
 			header: 'shortened',
-			noSlice: false
-		});
-
-		this.getPizza();
+			noSlice: false,
+			apiOffset: 1
+		}, this.getPizza);
 	}
 
 	getPizza() {
