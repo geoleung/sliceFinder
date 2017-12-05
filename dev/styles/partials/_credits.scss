@@ -1,27 +1,25 @@
 .credits {
     border: none;
-        display: inline;
-        position: absolute;
-        top: 10px;
-        left: 10px;
+    display: inline;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 
     .expandCredits, .allInfo {
         float: left;
-        // display: inline-block;
     }
     i.expandCredits {
         font-size: 2rem;
         margin-right: 15px;
     }
+    i.expandCredits:hover, i.expandCredits:focus, i.expandCredits:active {
+        text-shadow: 2px 2px 3px rgba(51, 0, 0, 0.7);
+    }
     p {
-        margin-top: 0;
         display: inline;
     }
     p, a {
         font-size: 1.5rem;
-        // margin: 0 6px 10px 39px;
-        color: white;
-        // position: relative;
     }
     a {
         padding: 0;
@@ -33,14 +31,13 @@
         font-size: 1.8rem;
         margin: 0;
     }
-    .individualInfo * {
-        // float: left;
-    }
-    .individualInfo i {
-        margin: 0;
-    }
-    .individualInfo, .expandCredits {
+    .individualInfo, .expandCredits, p {
         color: white;
-        // float: left;
+    }
+    .hidden {
+        display: none;
+    }
+    .allInfo {
+        margin-top: 1px;
     }
 }
