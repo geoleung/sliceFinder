@@ -23,21 +23,21 @@ class Credits extends React.Component {
                 {this.state.visible === true ?
                     <div className="allInfo clearfix">
                         <p>SliceFinder was created by </p>
-                        <a href="http://amandasilberberg.com">Amanda Silberberg</a>
+                        <a href="http://amandasilberberg.com" target="_blank">Amanda Silberberg</a>
                         <p>, </p>
-                        <a href="http://gaby.codes">Gaby Küpfer</a>
+                        <a href="http://gaby.codes" target="_blank">Gaby Küpfer</a>
                         <p>, </p>
-                        <a href="http://www.geoffreyleung.com">Geoffrey Leung</a>
+                        <a href="http://www.geoffreyleung.com" target="_blank">Geoffrey Leung</a>
                         <p> using the Yelp Fusion API.</p>
                     </div>
                     :
                     <div className="allInfo hidden clearfix">
                         <p>SliceFinder was created by </p>
-                        <a href="http://amandasilberberg.com">Amanda Silberberg</a>
+                        <a href="http://amandasilberberg.com" target="_blank">Amanda Silberberg</a>
                         <p>, </p>
-                        <a href="http://gaby.codes">Gaby Küpfer</a>
+                        <a href="http://gaby.codes" target="_blank">Gaby Küpfer</a>
                         <p>, </p>
-                        <a href="http://www.geoffreyleung.com">Geoffrey Leung</a>
+                        <a href="http://www.geoffreyleung.com" target="_blank">Geoffrey Leung</a>
                         <p> using the Yelp Fusion API.</p>
                     </div>
             

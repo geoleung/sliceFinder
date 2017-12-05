@@ -11,7 +11,7 @@ import Credits from './credits';
 class UserInputPage extends React.Component {
     constructor() {
 		super();
-		this.getMoreRestaurants = this.getMoreRestaurants.bind(this);	
+		this.getMoreRestaurants = this.getMoreRestaurants.bind(this);
 	}
 	
 	getMoreRestaurants() {

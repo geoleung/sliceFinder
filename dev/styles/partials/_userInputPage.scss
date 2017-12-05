@@ -141,6 +141,10 @@
         }
     }
 }
+.userInputPage form, .userInputPage header, .restaurant-container {
+        transition: max-width 1s ease,
+                    width 1s ease;
+}
 
 .error-message {
     position: absolute;
@@ -148,6 +152,7 @@
     bottom: 0;
     left: 0;
     right: 0;
+    padding: 10px;
 
     div {
         margin-top: 6%;
@@ -155,7 +160,7 @@
     }
 
     p {
-        font-size: 2rem;
+        font-size: 1.9rem;
         margin: 0;
 
         &:nth-of-type(2) {
