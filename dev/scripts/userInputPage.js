@@ -48,13 +48,11 @@ class UserInputPage extends React.Component {
 							}
 						</header>
 					}
-					
 					<form action="" onSubmit={this.props.handleSubmit}>
 						<label htmlFor="userLocation" className="sr-only">Enter your location</label>
 						<input type="text" autoComplete="off" name="userLocation" value={this.props.userLocation} onChange={this.props.handleChange} placeholder="Enter your city"/>
 						<button type="submit">Submit</button>
 					</form>
-
 					{this.props.header === "shortened" ? 
 						<RestaurantList loading={this.props.loading} sliceRestaurants={this.props.sliceRestaurants} noSlice={this.props.noSlice} />
 					: null }
@@ -63,7 +61,6 @@ class UserInputPage extends React.Component {
 						<button className="more" onClick={this.getMoreRestaurants}>Show me more!</button>
 					: null}
 				</div>
-				<Credits />
 			</section>
     	)
     }

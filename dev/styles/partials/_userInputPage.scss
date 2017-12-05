@@ -216,14 +216,15 @@ button.more:hover, button.more:focus, button.more:active {
 
         .arrow {
             transition: 0.3s;
+            fill: #fff;
         }
 
         &:hover {
             background: none;
 
-            .arrow {
-                fill: #fff;
-            }
+        //     .arrow {
+        //         fill: #fff;
+        //     }
         }
     }
 
