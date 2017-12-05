@@ -15,7 +15,7 @@ class NavBar extends React.Component {
                         <p className="logo">slice finder</p>
                     </Link>
                     <div className="social">
-                        <a href="https://github.com/GottaCacheEmAll/sliceFinder">
+                        <a href="https://github.com/GottaCacheEmAll/sliceFinder" target="_blank">
                             <i className="fa fa-github" aria-hidden="true" aria-label="View on GitHub"></i>
                         </a>
                         <a href="https://twitter.com/intent/tweet?text=Looking for a great slice of pizza in your area? Check out Slice Finder at http://bit.ly/2km4PYf !&hashtags=slicefinder" className="tweet" target="_blank">
