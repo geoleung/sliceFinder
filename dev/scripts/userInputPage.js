@@ -12,7 +12,6 @@ class UserInputPage extends React.Component {
     constructor() {
 		super();	
 	}
-	
     render() {
     	return (
 			<section className="userInputPage">
@@ -40,20 +39,16 @@ class UserInputPage extends React.Component {
 								<p>Location:</p>
 							}
 						</header>
-					
 					}
-					
 					<form action="" onSubmit={this.props.handleSubmit}>
 						<label htmlFor="userLocation" className="sr-only">Enter your location</label>
 						<input type="text" autoComplete="off" name="userLocation" value={this.props.userLocation} onChange={this.props.handleChange} placeholder="Enter your city"/>
 						<button type="submit">Submit</button>
 					</form>
-
 					{this.props.header === "shortened" ? 
 						<RestaurantList loading={this.props.loading} sliceRestaurants={this.props.sliceRestaurants} noSlice={this.props.noSlice} />
 					: null }
 				</div>
-				<Credits />
 			</section>
     	)
     }
