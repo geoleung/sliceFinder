@@ -65,6 +65,10 @@ const RestaurantList = (props) => {
                     );
                 })}
                 </Flickity>
+
+                {props.header === "shortened" ?
+						<button className="more" onClick={props.getMoreRestaurants}>Show me more!</button>
+				: null}
             </div>
         );
     }
