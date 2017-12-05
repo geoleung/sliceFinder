@@ -226,10 +226,6 @@ button.more:hover, button.more:focus, button.more:active {
 
         &:hover {
             background: none;
-
-        //     .arrow {
-        //         fill: #fff;
-        //     }
         }
     }
 
@@ -316,6 +312,18 @@ button.more:hover, button.more:focus, button.more:active {
         float: none;
         width: 100%;
         text-align: center;
+    }
+
+    .restaurant-container h2 {
+        margin-bottom: 0
+    }
+
+    .restaurant-container h2::after {
+        width: 0;
+    }
+
+    .restaurant-container .restaurant-info p {
+        margin-bottom: 15px;
     }
 
     .userInputPage input,
